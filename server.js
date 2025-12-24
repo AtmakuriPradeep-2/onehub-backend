@@ -7,11 +7,11 @@ const connectDB = require("./config/db");
 const app = express();
 connectDB();
 
-// Middlewares
+// ================= MIDDLEWARES =================
 app.use(express.json());
 app.use(cookieParser());
 
-// ✅ Allow all origins (Web + Mobile)
+// ✅ Allow all origins (Web + Android + iOS)
 app.use(
   cors({
     origin: true,
@@ -19,22 +19,19 @@ app.use(
   })
 );
 
-// ✅ Serve uploads publicly
-app.use("/uploads", express.static("uploads"));
-
-// ✅ Test route
+// ================= TEST ROUTE =================
 app.get("/", (req, res) => {
   res.send("✅ OneHub Backend is running successfully...");
 });
 
-// Routes
+// ================= ROUTES =================
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/vendors", require("./routes/vendorRoutes"));
 app.use("/api/products", require("./routes/productRoutes"));
 app.use("/api/orders", require("./routes/orderRoutes"));
 app.use("/api/admin", require("./routes/adminRoutes"));
 
-// Start server
+// ================= START SERVER =================
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () =>
   console.log(`✅ Server running on port ${PORT}`)
