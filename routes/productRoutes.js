@@ -11,20 +11,20 @@ const {
 
 // ================= PRODUCT ROUTES =================
 
-// Add product
+// 🔹 GET ALL PRODUCTS (CUSTOMER)
+router.get("/all", getAllProducts);
+
+// 🔹 ADD PRODUCT (VENDOR)
 router.post("/", addProduct);
 
-// Get all products
-router.get("/", getAllProducts);
-
-// Get product by ID
+// 🔹 GET SINGLE PRODUCT BY ID
 router.get("/:id", getProductById);
 
-// Update product
+// 🔹 UPDATE PRODUCT
 router.put("/:id", updateProduct);
 
-// Delete product
+// 🔹 DELETE PRODUCT
 router.delete("/:id", deleteProduct);
 
-// 🔥 EXPORT ROUTER
+// ✅ EXPORT ROUTER
 module.exports = router;
