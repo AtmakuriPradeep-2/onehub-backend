@@ -119,3 +119,4 @@ exports.deleteProduct = async (req, res) => {
     res.status(500).json({ message: "Server error deleting product" });
   }
 };
+module.exports = router;
